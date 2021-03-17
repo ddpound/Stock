@@ -38,5 +38,10 @@ public class MainStockServiceImpl implements MainStockService {
 		JoinStage.show();
 
 	}
+	
+	// 여기다가 만드는게 나을듯 
+	
+	
+	
 
 }

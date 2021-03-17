@@ -40,8 +40,7 @@ public class Run extends Application{
 	}
 
 	public static void main(String[] args) {
-		MainStackSystem mss = new MainStackSystem();
-		mss.start(); //  아니 이거 어케끄는지는 나중에 생각
+		
 		launch();
 		
 	}

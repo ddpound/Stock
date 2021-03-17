@@ -47,10 +47,6 @@ public class ChangeStockImpl implements ChangeStock {
 				ps2.executeQuery();
 				
 			}
-
-			
-
-		
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -129,7 +125,8 @@ public class ChangeStockImpl implements ChangeStock {
 				+ "'";
 
 		String sql1 = "SELECT StockPrice from Stock WHERE StockName =" + "'" + chStockName + "'";
-
+		
+		
 		Connection con = null;
 
 		PreparedStatement ps = null;

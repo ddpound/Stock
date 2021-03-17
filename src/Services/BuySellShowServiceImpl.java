@@ -36,6 +36,7 @@ public class BuySellShowServiceImpl implements BuySellShowService {
 	private Label LabId; //현재 유저 아이디
 	private Label LableftMoney; // 현재 유저 머니
 	private TextField SaveStockTheMumber;
+	private Label PalMoney;
 	
 	
 	private String NowLoginUser = Run.Run.getNOWUSER(); // 현재 로그인된 자의 이름을 가져옴
@@ -49,7 +50,7 @@ public class BuySellShowServiceImpl implements BuySellShowService {
 	@Override
 	public void setRoot(Parent root) {
 		this.root = root;
-		
+		PalMoney =(Label)root.lookup("#PalMoney");
 		stockList = (ListView<String>) root.lookup("#stockList");
 		stockArea = (AreaChart)root.lookup("#stockArea");
 		StockThePrice = (TextField)root.lookup("#StockThePrice");
@@ -63,6 +64,21 @@ public class BuySellShowServiceImpl implements BuySellShowService {
 		
 		LableftMoney.setText(Integer.toString(Run.Run.getNOWUSERMONEY()));
 	}
+	
+	
+	//이때궁금한게 쓰레드는 먼저 생성되는데 루투는 아직 실행안될테고 그럼 쓰레드에 트라이캐치를 넣어야하나?
+	// 이게 에러가 발생을 안하려나? 
+	public void setPAlMoney(int palmoney) {
+		try {
+			PalMoney.setText(Integer.toString(palmoney));
+			System.out.println(this.root);
+		}catch(Exception e) {
+			System.out.println("널값이란다");
+			System.out.println(this.root);
+		}
+		
+	}
+	
 
 	@Override
 	public void addStockList() {
@@ -70,7 +86,7 @@ public class BuySellShowServiceImpl implements BuySellShowService {
 		sdbs = new StockDBServiceImpl(); // 여기서 초기화 매번 가져와
 		dbbss = new DBBuySellServiceImpl(); // 초기화 여기서
 		//작명 개망했다... 겹치는데 나중에 수정해야함
-		// 여기 DB로 주식 데이터를 가져와 주는 부분
+		// 여기 DB로 주식 데이터를 가져와 주는 부분 
 		Iterator<String> keys =  sdbs.getStockList().getStockList().keySet().iterator();
         while (keys.hasNext()){
             String key = keys.next();
@@ -83,7 +99,9 @@ public class BuySellShowServiceImpl implements BuySellShowService {
 	
 	// 인트 요거는 자료형으로 받아야할 듯
 	public void setChart(String title, Stock stockMoney) {
+		
 		stockArea.getData().clear(); // 차트안에 데이터값이 중복되어서 열리니깐 삭제해주고 확인
+		
 		
 		//스톡을 받아서 그안의 stockMoney를 저장한거임
 		

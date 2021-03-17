@@ -9,6 +9,7 @@ public interface BuySellShowService {
 	public void addStockList(); // 리스트 뷰 주식 추가하는 메소드
 	public void BuyTest(); //바이테스트
 	public void SellTest();
+	public void setPAlMoney(int palmoney); // 여기에 총금액을 갱신하는 부분
 	//public void setChart();
 
 }

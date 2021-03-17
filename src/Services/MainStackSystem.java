@@ -5,6 +5,7 @@ package Services;
 import java.util.ArrayList;
 import java.util.Random;
 
+import Controllers.MainStockController;
 import DBService.ChangeStock;
 import DBService.ChangeStockImpl;
 import DBService.StockDBService;
@@ -17,6 +18,9 @@ public class MainStackSystem extends Thread{
 	private double randomStackName;
 	private StockDBService SDBS; // 여기 디비저장후 바로 여기에 값들을 다 저장하니깐 이걸 가져와야함
 	private ChangeStock chst;
+
+	
+	
 	public MainStackSystem() {
 		SDBS = new StockDBServiceImpl();
 		random = new Random();
@@ -60,6 +64,14 @@ public class MainStackSystem extends Thread{
 	                chst.preChange(SDBS.getStockList().getArrStoList().get(indexStackName).getStockName());
 	                
 	                chst.change(SDBS.getStockList().getArrStoList().get(indexStackName).getStockName(), intPrice);
+	                
+	                
+	                // 여기다가 총 손익 돈 넣어야 하는부분(2021.03.17 추가)
+	  
+	                
+	                
+	                
+	                
 	                Thread.sleep(3000);
 	                
 	                

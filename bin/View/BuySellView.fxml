@@ -44,7 +44,13 @@
       <TextField fx:id="SaveStockTheMumber" editable="false" layoutX="333.0" layoutY="288.0" />
       <Label layoutX="130.0" layoutY="14.0" prefHeight="34.0" prefWidth="87.0" text="로그인아이디 : " />
       <Label fx:id="LabId" layoutX="226.0" layoutY="20.0" prefHeight="22.0" prefWidth="109.0" />
-      <Label layoutX="165.0" layoutY="43.0" prefHeight="14.0" prefWidth="43.0" text="소지금 :" />
-      <Label fx:id="LableftMoney" layoutX="216.0" layoutY="43.0" prefHeight="14.0" prefWidth="100.0" />
+      <Label layoutX="116.0" layoutY="43.0" prefHeight="14.0" prefWidth="116.0" text="가지고 있는 현금 :" />
+      <Label fx:id="LableftMoney" layoutX="226.0" layoutY="43.0" prefHeight="14.0" prefWidth="100.0" />
+      <Label layoutX="335.0" layoutY="31.0" text="총자산" />
+      <Label fx:id="PalMoney" layoutX="382.0" layoutY="24.0" text="0">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
