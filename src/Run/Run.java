@@ -11,6 +11,8 @@ import javafx.stage.Stage;
 public class Run extends Application{
 	static String NOWUSER ;
 	static int NOWUSERMONEY;
+	static Parent BuySellroot; // 마지막 창의 루트값
+	static Parent MainStockroot;
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/LoginView.fxml"));
@@ -23,6 +25,27 @@ public class Run extends Application{
 		primaryStage.show();
 	}
 	
+	public static Parent getMainStockroot() {
+		return MainStockroot;
+	}
+
+
+	public static void setMainStockroot(Parent mainStockroot) {
+		MainStockroot = mainStockroot;
+	}
+
+
+	public static Parent getBuySellroot() {
+		return BuySellroot;
+	}
+
+
+	public static void setBuySellroot(Parent buySellroot) {
+		BuySellroot = buySellroot;
+	}
+
+
+
 	public static String getNOWUSER() {
 		return NOWUSER;
 	}

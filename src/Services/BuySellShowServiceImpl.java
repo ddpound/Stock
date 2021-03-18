@@ -121,9 +121,9 @@ public class BuySellShowServiceImpl implements BuySellShowService {
 	public void ChoStack() {
 		stockList.getSelectionModel().selectedIndexProperty().addListener((a,b,c)->{
 			sdbs = new StockDBServiceImpl(); // 여기서 초기화 매번 가져와
-			System.out.println("형식:" + a);
-			System.out.println("이전선택값: "+b);
-			System.out.println("지금선택값: "+ c);
+			//System.out.println("형식:" + a);
+			//System.out.println("이전선택값: "+b);
+			//System.out.println("지금선택값: "+ c);
 			choiceStock = stockString.get((int)c); // 이걸 선택해야 저기 인식을함 아래에서 
 			// 클릭할때마다 차트값을 초기화후 새로 등록하는 setChart 가 발동
 			setChart(stockString.get((int)c), sdbs.getStockList().getStockList().get(stockString.get((int)c)));
@@ -181,6 +181,7 @@ public class BuySellShowServiceImpl implements BuySellShowService {
 		Scene scene = new Scene(root);
 		BuySellController buySellController = loader.getController();
 		buySellController.setRoot(root);
+		//에러나면 여기요망
 		JoinStage.setScene(scene);
 		JoinStage.show();
 
