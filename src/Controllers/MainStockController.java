@@ -88,6 +88,7 @@ public class MainStockController implements Initializable {
 		db = new DBMainStockimpl();
 		
 		
+		
 		stockName.setCellValueFactory(cellData -> cellData.getValue().getStockName());
 		stockPrice.setCellValueFactory(cellData -> cellData.getValue().getStockPrice().asObject());
 		changePrice.setCellValueFactory(cellData -> cellData.getValue().getChangePrice().asObject());
@@ -98,6 +99,7 @@ public class MainStockController implements Initializable {
 		Rmss.start(); //  아니 이거 어케끄는지는 나중에 생각
 		db.DBload();
 		List();
+		tableView.getItems().clear();
 		tableView.setItems(myList);
 	}
 
@@ -117,7 +119,8 @@ public class MainStockController implements Initializable {
 		List();
 		tableView.getItems().clear();
 		tableView.setItems(myList);
-		tableView.getItems().clear();
+		
+		
 	}
 
 }
