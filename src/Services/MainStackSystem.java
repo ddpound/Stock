@@ -33,6 +33,8 @@ public class MainStackSystem extends Thread{
 	private Label PalMoney;
 	private Random random;
 	private double randomPrice;
+	private double randomPrice1;
+	private double randomPrice2;
 	private double randomStackName;
 	private StockDBService SDBS; // 여기 디비저장후 바로 여기에 값들을 다 저장하니깐 이걸 가져와야함
 	private ChangeStock chst;
@@ -70,16 +72,26 @@ public class MainStackSystem extends Thread{
 	            	sleep(1000);
 	            	System.out.println("주식 변동프로그램  작동중 : " + i);
 	                randomPrice = Math.random();
+	                randomPrice1 = Math.random();
+	                randomPrice2 = Math.random();
 	                randomStackName = Math.random();
 	                int intPrice = (int )(randomPrice * 70000)+ 7000;
+	                int intPrice1 = (int )(randomPrice * 100000)+ 10000;
+	                int intPrice2 = (int )(randomPrice * 120000)+ 20000;
 	                // 0부터 리스트 사이즈까지 랜덤으로
 	                int indexStackName = (int )(randomPrice * SDBS.getStockList().getArrStoList().size())+ 0; // 이거수정
+	                int indexStackName1 = (int )(randomPrice1 * SDBS.getStockList().getArrStoList().size())+ 0; // 이거수정
+	                int indexStackName2 = (int )(randomPrice2 * SDBS.getStockList().getArrStoList().size())+ 0; // 이거수정
 	                // 여기에 전달해서 그값을 변동시키면 될듯 
 	                // 근데 미리 받아놓은 STACKDTO가 있으니깐 거기 리스트 밸류값도 같이 받아야할듯
 	                
 	                
 	                System.out.println( SDBS.getStockList().getArrStoList().get(indexStackName).getStockName());
 	                System.out.println(intPrice);
+	                System.out.println( SDBS.getStockList().getArrStoList().get(indexStackName1).getStockName());
+	                System.out.println(intPrice1);
+	                System.out.println( SDBS.getStockList().getArrStoList().get(indexStackName2).getStockName());
+	                System.out.println(intPrice2);
 	            	
 	            	
 	            	
@@ -93,8 +105,8 @@ public class MainStackSystem extends Thread{
 		            		LabChMoney = (Label)Run.Run.getMainStockroot().lookup("#LabChMoney");
 
 		            		
-		            		LabChStock.setText(SDBS.getStockList().getArrStoList().get(indexStackName).getStockName());
-		            		LabChMoney.setText(Integer.toString(intPrice));
+		            		LabChStock.setText(SDBS.getStockList().getArrStoList().get(indexStackName2).getStockName());
+		            		LabChMoney.setText(Integer.toString(intPrice2));
 		            		
 		            		
 		            	}catch(Exception e) {
@@ -154,8 +166,18 @@ public class MainStackSystem extends Thread{
 	                chst.preChange(SDBS.getStockList().getArrStoList().get(indexStackName).getStockName());
 	                
 	                chst.change(SDBS.getStockList().getArrStoList().get(indexStackName).getStockName(), intPrice);
+	                // ----------------------------------------------------------------------------
+	                chst.prepreChange(SDBS.getStockList().getArrStoList().get(indexStackName1).getStockName());
+		             
+	                chst.preChange(SDBS.getStockList().getArrStoList().get(indexStackName1).getStockName());
 	                
+	                chst.change(SDBS.getStockList().getArrStoList().get(indexStackName1).getStockName(), intPrice1);
+	                // ----------------------------------------------------------------------
+	                chst.prepreChange(SDBS.getStockList().getArrStoList().get(indexStackName2).getStockName());
+		             
+	                chst.preChange(SDBS.getStockList().getArrStoList().get(indexStackName2).getStockName());
 	                
+	                chst.change(SDBS.getStockList().getArrStoList().get(indexStackName2).getStockName(), intPrice2);
 	                // 여기다가 총 손익 돈 넣어야 하는부분(2021.03.17 추가)
 
 //	                if(PalMoney.equals(null)) {

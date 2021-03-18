@@ -22,6 +22,8 @@ public class Run extends Application{
 		LoginController loginController = loader.getController();
 		loginController.setRoot(root); // 여기가 값 받아다 전달하는 부분 여기가 제일먼저긴 함
 		primaryStage.setScene(scene);
+		primaryStage.setResizable(false);
+		primaryStage.setTitle("주식프로그램");
 		primaryStage.show();
 	}
 	

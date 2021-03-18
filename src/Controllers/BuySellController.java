@@ -17,16 +17,10 @@ public class BuySellController implements Initializable{
 	private DBBuySellService bsss; // 여기다 값이 고정되어야하니깐 여기 컨트롤러에서 받아와야할듯
 	
 	
-	
-	
-	
 	public void setRoot(Parent root) {
 		this.root =root;
 		bss.setRoot(root);
 		Run.Run.setBuySellroot(root);
-
-		
-		
 	}
 	
 	

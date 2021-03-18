@@ -52,6 +52,8 @@ public class LoginServiceImpl implements LoginService {
 		loginController.setRoot(root); // 여기가 값 받아다 전달하는 부분 여기가 제일먼저긴 함
 
 		LoginStage.setScene(scene);
+		LoginStage.setResizable(false);
+		LoginStage.setTitle("주식프로그램");
 		LoginStage.show();
 
 		// 회원가입창 창 닫는 부분

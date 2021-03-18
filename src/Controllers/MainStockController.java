@@ -50,9 +50,7 @@ public class MainStockController implements Initializable {
 		int j = 0;
 		try {
 			j = db.getgetDTO().getHashDataList().size();
-			System.out.println("aaa");
-			System.out.println(db.getgetDTO().getHashDataList().get("샘성").getStockName() + "aaaaaa");
-			System.out.println(db.getgetDTO().getArrDataList().get(2).getStockName() + "bbbbbbbbbbbbbbbbbbb");
+	
 		} catch (Exception e) {
 			System.out.println(root);
 		}
@@ -110,14 +108,16 @@ public class MainStockController implements Initializable {
 	}
 	
 	public void newStockPrice() {
-		tableView.getItems().clear();
+		
 		
 		stockName.setCellValueFactory(cellData -> cellData.getValue().getStockName());
 		stockPrice.setCellValueFactory(cellData -> cellData.getValue().getStockPrice().asObject());
 		changePrice.setCellValueFactory(cellData -> cellData.getValue().getChangePrice().asObject());
 		db.DBload();
 		List();
+		tableView.getItems().clear();
 		tableView.setItems(myList);
+		tableView.getItems().clear();
 	}
 
 }

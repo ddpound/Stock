@@ -7,16 +7,26 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="473.0" prefWidth="518.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.BuySellController">
+<AnchorPane prefHeight="543.0" prefWidth="518.0" style="-fx-background-color: #FE9A2E;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.BuySellController">
    <children>
-      <Label layoutX="14.0" layoutY="24.0" text="주식 팔고 사는창" />
-      <Button layoutX="374.0" layoutY="428.0" mnemonicParsing="false" onAction="#btnBuy" text="BUY" />
-      <Button layoutX="437.0" layoutY="428.0" mnemonicParsing="false" onAction="#btnSell" text="SELL" />
-      <ListView fx:id="stockList" layoutX="34.0" layoutY="283.0" prefHeight="123.0" prefWidth="192.0" />
-      <AreaChart fx:id="stockArea" animated="false" layoutX="14.0" layoutY="50.0" prefHeight="228.0" prefWidth="466.0">
+      <ImageView fitHeight="109.0" fitWidth="171.0" layoutX="341.0" layoutY="11.0">
+         <image>
+            <Image url="@../Resources/즐거운 루피.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="160.0" layoutY="21.0" text="매수 매도">
+         <font>
+            <Font size="37.0" />
+         </font></Label>
+      <Button layoutX="374.0" layoutY="501.0" mnemonicParsing="false" onAction="#btnBuy" text="BUY" />
+      <Button layoutX="437.0" layoutY="501.0" mnemonicParsing="false" onAction="#btnSell" text="SELL" />
+      <ListView fx:id="stockList" layoutX="34.0" layoutY="359.0" prefHeight="123.0" prefWidth="192.0" />
+      <AreaChart fx:id="stockArea" animated="false" layoutX="14.0" layoutY="116.0" prefHeight="228.0" prefWidth="479.0">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>
@@ -24,30 +34,30 @@
           <NumberAxis side="LEFT" />
         </yAxis>
       </AreaChart>
-      <Label layoutX="237.0" layoutY="282.0" text="보유주">
+      <Label layoutX="237.0" layoutY="355.0" text="보유주">
          <font>
             <Font size="29.0" />
          </font>
       </Label>
-      <Label layoutX="236.0" layoutY="373.0" text="가격">
+      <Label layoutX="247.0" layoutY="404.0" text="가격">
          <font>
             <Font size="29.0" />
          </font>
       </Label>
-      <TextField fx:id="StockTheMumber" layoutX="333.0" layoutY="334.0" />
-      <TextField fx:id="StockThePrice" editable="false" layoutX="333.0" layoutY="379.0" />
-      <Label layoutX="251.0" layoutY="328.0" text="주">
+      <TextField fx:id="StockTheMumber" layoutX="334.0" layoutY="457.0" />
+      <TextField fx:id="StockThePrice" editable="false" layoutX="333.0" layoutY="407.0" />
+      <Label layoutX="237.0" layoutY="451.0" text="매수량">
          <font>
             <Font size="29.0" />
          </font>
       </Label>
-      <TextField fx:id="SaveStockTheMumber" editable="false" layoutX="333.0" layoutY="288.0" />
-      <Label layoutX="130.0" layoutY="14.0" prefHeight="34.0" prefWidth="87.0" text="로그인아이디 : " />
-      <Label fx:id="LabId" layoutX="226.0" layoutY="20.0" prefHeight="22.0" prefWidth="109.0" />
-      <Label layoutX="116.0" layoutY="43.0" prefHeight="14.0" prefWidth="116.0" text="가지고 있는 현금 :" />
-      <Label fx:id="LableftMoney" layoutX="226.0" layoutY="43.0" prefHeight="14.0" prefWidth="100.0" />
-      <Label layoutX="335.0" layoutY="31.0" text="총자산" />
-      <Label fx:id="PalMoney" layoutX="382.0" layoutY="24.0" text="0">
+      <TextField fx:id="SaveStockTheMumber" editable="false" layoutX="333.0" layoutY="361.0" />
+      <Label layoutX="51.0" layoutY="72.0" prefHeight="34.0" prefWidth="87.0" text="로그인아이디 : " />
+      <Label fx:id="LabId" layoutX="143.0" layoutY="78.0" prefHeight="22.0" prefWidth="109.0" />
+      <Label layoutX="99.0" layoutY="101.0" prefHeight="14.0" prefWidth="36.0" text="자금 :" />
+      <Label fx:id="LableftMoney" layoutX="143.0" layoutY="99.0" prefHeight="14.0" prefWidth="100.0" />
+      <Label layoutX="308.0" layoutY="99.0" text="총자산" />
+      <Label fx:id="PalMoney" layoutX="374.0" layoutY="87.0" text="0">
          <font>
             <Font size="23.0" />
          </font>

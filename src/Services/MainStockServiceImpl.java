@@ -35,6 +35,8 @@ public class MainStockServiceImpl implements MainStockService {
 		MainStockController mainStockController = loader.getController();
 		mainStockController.setRoot(root);
 		JoinStage.setScene(scene);
+		JoinStage.setResizable(false);
+		JoinStage.setTitle("주식프로그램");
 		JoinStage.show();
 
 	}

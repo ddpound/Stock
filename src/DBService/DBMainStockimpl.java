@@ -35,7 +35,6 @@ public class DBMainStockimpl implements DBMainStock{
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		System.out.println("드라이브 로드 되었습니다aaaaaaaaaaaa");
 		
 		DBload();
 	}
@@ -49,7 +48,6 @@ public class DBMainStockimpl implements DBMainStock{
 		PreparedStatement ps = null;
 		try {
 			con = DriverManager.getConnection(url, id, pwd);
-			System.out.println("연결완료");
 			ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
            
@@ -60,10 +58,10 @@ public class DBMainStockimpl implements DBMainStock{
 				dm.setChangePrice(rs.getInt("PrestockPrice"));
 				dto.setadd_H(dm);
 		     	dto.setadd(dm); // ?
-		     	System.out.println(dto.getHashDataList().get(rs.getString("StockName")).getStockName()+"   아아아아");
+		     	
 					//System.out.println(dto.getArrDataList().get(1).getStockName());
 			}
-			System.out.println("DB값을 가져오는데 성공했습니다aaaaaaaaaaaaaaaaaaaaa");
+			
 			
 			
 			

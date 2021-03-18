@@ -183,6 +183,8 @@ public class BuySellShowServiceImpl implements BuySellShowService {
 		buySellController.setRoot(root);
 		//에러나면 여기요망
 		JoinStage.setScene(scene);
+		JoinStage.setResizable(false);
+		JoinStage.setTitle("주식프로그램");
 		JoinStage.show();
 
 	}

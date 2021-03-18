@@ -64,7 +64,8 @@ public class JoinServiceImpl implements JoinService {
 		Scene scene = new Scene(root);
 		JoinController joinController = loader.getController();
 		joinController.setRoot(root);
-		
+		JoinStage.setResizable(false);
+		JoinStage.setTitle("주식프로그램");
 		JoinStage.setScene(scene);
 		JoinStage.show();
 		
