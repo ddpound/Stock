@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 public class Run extends Application{
 	static String NOWUSER ;
 	static int NOWUSERMONEY;
+	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/LoginView.fxml"));

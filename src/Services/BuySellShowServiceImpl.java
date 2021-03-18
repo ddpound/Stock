@@ -46,6 +46,9 @@ public class BuySellShowServiceImpl implements BuySellShowService {
 	private StockDBService sdbs ;
 	private DBBuySellService dbbss; // 디비에 저장된 사고팔기를 위한 기능, StockUser 데베 가져온 DTO
 	
+	
+	
+	
 	@Override
 	public void setRoot(Parent root) {
 		this.root = root;
@@ -57,6 +60,10 @@ public class BuySellShowServiceImpl implements BuySellShowService {
 		LabId = (Label)root.lookup("#LabId");
 		SaveStockTheMumber = (TextField)root.lookup("#SaveStockTheMumber");
 		LableftMoney = (Label)root.lookup("#LableftMoney");
+		
+		
+		
+		
 		addStockList(); // 리스트에 DB에 모든 주식들을 저장하는 프로그램
 		ChoStack();// 여기서 실행, 한번 메소드 실행만되고 등록만 된다면 사용가능한듯 이게 등록해야 터치시 반응 얻을수있음
 		LabId.setText(NowLoginUser);
@@ -64,6 +71,8 @@ public class BuySellShowServiceImpl implements BuySellShowService {
 		LableftMoney.setText(Integer.toString(Run.Run.getNOWUSERMONEY()));
 	}
 
+	
+	
 	@Override
 	public void addStockList() {
 		stockString = FXCollections.observableArrayList();
@@ -72,6 +81,8 @@ public class BuySellShowServiceImpl implements BuySellShowService {
 		//작명 개망했다... 겹치는데 나중에 수정해야함
 		// 여기 DB로 주식 데이터를 가져와 주는 부분
 		Iterator<String> keys =  sdbs.getStockList().getStockList().keySet().iterator();
+		
+		
         while (keys.hasNext()){
             String key = keys.next();
             stockString.add(key);
@@ -80,6 +91,13 @@ public class BuySellShowServiceImpl implements BuySellShowService {
 		stockList.setItems(stockString);
 		
 	}
+	
+	
+	
+	
+	
+	
+	
 	
 	// 인트 요거는 자료형으로 받아야할 듯
 	public void setChart(String title, Stock stockMoney) {
@@ -111,6 +129,7 @@ public class BuySellShowServiceImpl implements BuySellShowService {
 			setChart(stockString.get((int)c), sdbs.getStockList().getStockList().get(stockString.get((int)c)));
 			
 			String  price = Integer.toString(sdbs.getStockList().getStockList().get(stockString.get((int)c)).getStockPrice()) ;
+			
 			StockThePrice.setText(price);
 
 			//System.out.println(NowLoginUser+","+stockString.get((int)c));

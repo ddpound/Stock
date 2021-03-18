@@ -6,6 +6,7 @@ import Controllers.BuySellController;
 import Controllers.LoginController;
 import DBService.DBService;
 import DBService.DBServiceImpl;
+import DBService.StockDBServiceImpl;
 import Model.NowUser;
 import Run.Run;
 import javafx.fxml.FXMLLoader;
@@ -24,7 +25,7 @@ public class LoginServiceImpl implements LoginService {
 	private Stage LoginStage;
 	private DBService dbservice;
 	private MainStockService ms;
-	
+	private StockDBServiceImpl sd;
 
 	public void setRoot(Parent root) {
 		
@@ -65,6 +66,7 @@ public class LoginServiceImpl implements LoginService {
 	public LoginServiceImpl() {
 		dbservice = new DBServiceImpl();
 		ms = new MainStockServiceImpl();
+		sd = new StockDBServiceImpl();
 	}
 
 	@Override
@@ -85,6 +87,7 @@ public class LoginServiceImpl implements LoginService {
 		} else if (dbservice.selectId(txtId.getText(), txtPwd.getText()) == -1) {
 			alert.setContentText("아이디가 틀렸습니다");
 			alert.show();
+		    sd.StockInsert();
 			// 아이디가 없음
 		} else {
 			alert.setContentText("비밀번호가 틀렸습니다");

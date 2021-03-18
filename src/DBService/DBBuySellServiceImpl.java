@@ -54,6 +54,7 @@ public class DBBuySellServiceImpl implements DBBuySellService{
 	}
 	// 몇개 살껀지 아는 매개변수 인트형 buyStackNumber , 그리고 뭐살지 정해주는거
 	// 사는게 트루
+	
 	public int ConcurStock(String StockName, int buyStackNumber, boolean buysellChoice) {
 		String userMsql = "SELECT userMoney from stUser WHERE userId ="+"'"+NowUser+"'"; // 현재 유저의 돈
 		String StockNsql = "SELECT StockPrice from Stock WHERE StockName = "+"'"+StockName+"'"; // 주식의돈

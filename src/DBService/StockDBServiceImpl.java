@@ -16,8 +16,10 @@ public class StockDBServiceImpl implements StockDBService {
 	private String pwd = "1234"; // 비밀번호도 마찬가지!
 	private StockDTO stockdto = new StockDTO(); // 여기가 사실 저장한거니깐 여기서 받아오자
 
+	
 	public StockDBServiceImpl() {
 		StockInsert(); // 값 가져오려면 무조건 브링 시켜야지
+		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 		} catch (ClassNotFoundException e) {

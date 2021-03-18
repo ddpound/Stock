@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 public class MainStockServiceImpl implements MainStockService {
 	private Parent root;
 
+
 	@Override
 	public void setRoot(Parent root) {
 		this.root = root;

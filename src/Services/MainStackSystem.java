@@ -17,6 +17,8 @@ public class MainStackSystem extends Thread{
 	private double randomStackName;
 	private StockDBService SDBS; // 여기 디비저장후 바로 여기에 값들을 다 저장하니깐 이걸 가져와야함
 	private ChangeStock chst;
+	
+	
 	public MainStackSystem() {
 		SDBS = new StockDBServiceImpl();
 		random = new Random();
