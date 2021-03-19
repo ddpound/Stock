@@ -95,5 +95,11 @@ public class LoginServiceImpl implements LoginService {
 		}
 
 	}
+	
+	public void AlertShow(String M) {
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setContentText(M);
+		alert.show();
+	}
 
 }

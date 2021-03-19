@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import Model.Stock;
 import Model.StockUser;
 import Model.StockUserDTO;
+import Services.LoginService;
+import Services.LoginServiceImpl;
 
 public class DBBuySellServiceImpl implements DBBuySellService{
 	private String url = "jdbc:oracle:thin:@localhost:1521:xe"; // 에러날시 개인컴에서 사용하던 url을 이용해주세요
@@ -19,6 +21,7 @@ public class DBBuySellServiceImpl implements DBBuySellService{
 	private StockUser stockUser;
 	private String NowUser = Run.Run.getNOWUSER();
 	private int NowUserMoney;
+	private LoginService lgSv = new LoginServiceImpl();
 	
 	public DBBuySellServiceImpl() {
 		
@@ -117,6 +120,7 @@ public class DBBuySellServiceImpl implements DBBuySellService{
 				// 이미 산 게 있다는 뜻이니깐 패스
 				if((buySellTotlaMoney) < 0 ) {
 					System.out.println("돈이없습니다");
+					lgSv.AlertShow("소지금이부족합니다");
 				}else {
 					UpdateBuy(Number, buySellTotlaMoney, StockName,buysell);
 					Run.Run.setNOWUSERMONEY(buySellTotlaMoney);
@@ -206,6 +210,7 @@ public class DBBuySellServiceImpl implements DBBuySellService{
 			
 			if(TotalPrice < 0) {
 				System.out.println("부족합니다 가지고있던 주식이");
+				lgSv.AlertShow("가진 주가 한개도 없습니다!");
 				return -1; // 부족하다는 뜻
 			
 			}

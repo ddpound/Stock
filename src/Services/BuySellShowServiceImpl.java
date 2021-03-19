@@ -125,6 +125,7 @@ public class BuySellShowServiceImpl implements BuySellShowService {
 			//System.out.println("이전선택값: "+b);
 			//System.out.println("지금선택값: "+ c);
 			choiceStock = stockString.get((int)c); // 이걸 선택해야 저기 인식을함 아래에서 
+			// 몇번째 인덱스의 스트링값을 가져와라
 			// 클릭할때마다 차트값을 초기화후 새로 등록하는 setChart 가 발동
 			setChart(stockString.get((int)c), sdbs.getStockList().getStockList().get(stockString.get((int)c)));
 			
@@ -156,11 +157,35 @@ public class BuySellShowServiceImpl implements BuySellShowService {
 	public void BuyTest() {
 		dbbss.ConcurStock(choiceStock, Integer.parseInt(StockTheMumber.getText()),true ); // 일단 여기는 사는거니깐
 		LableftMoney.setText(Integer.toString(Run.Run.getNOWUSERMONEY()));
+		try {
+			String userPrice = Integer.toString(dbbss.getstDTO().getstockUserFind().get(NowLoginUser+","+choiceStock).getSaveStockNumber());
+			if(userPrice.equals(null)) {
+			}else {
+				SaveStockTheMumber.setText(userPrice);
+			}
+			
+		}catch(Exception e) {
+			// 에러 로그는 뺌 일부로 만들어둔거
+			System.out.println("산주식이없음");
+			SaveStockTheMumber.clear();
+		}
 	}
 	
 	public void SellTest() {
-		dbbss.ConcurStock(choiceStock, Integer.parseInt(StockTheMumber.getText()),false ); // 일단 여기는 사는거니깐
+		dbbss.ConcurStock(choiceStock, Integer.parseInt(StockTheMumber.getText()),false ); // 일단 여기는 파는거니깐
 		LableftMoney.setText(Integer.toString(Run.Run.getNOWUSERMONEY()) );
+		try {
+			String userPrice = Integer.toString(dbbss.getstDTO().getstockUserFind().get(NowLoginUser+","+choiceStock).getSaveStockNumber());
+			if(userPrice.equals(null)) {
+			}else {
+				SaveStockTheMumber.setText(userPrice);
+			}
+			
+		}catch(Exception e) {
+			// 에러 로그는 뺌 일부로 만들어둔거
+			System.out.println("산주식이없음");
+			SaveStockTheMumber.clear();
+		}
 	}
 	
 	

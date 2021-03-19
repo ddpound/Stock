@@ -11,7 +11,7 @@ public interface LoginService {
 	public void newLoginView();
 	public void setJoinRoot(Parent Jroot); // 회원가입창 닫기위해 join의 루트값 받아오는 메소드 
 	public void setRoot(Parent root); // 자기 루트 받아오는거
-	
+	public void AlertShow(String M); // 문자열을 받아서 알람을 띄우는 것
 	
 	
 	
